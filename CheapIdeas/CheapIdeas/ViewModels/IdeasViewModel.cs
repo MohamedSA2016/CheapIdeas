@@ -42,15 +42,18 @@ namespace CheapIdeas.ViewModels
         {
             get
             {
-                return new Command(() =>
+                return new Command(async() =>
                 {
                     Settings.AccessToken = string.Empty;
                     Debug.WriteLine(Settings.Username);
                     Settings.Username = string.Empty;
                     Debug.WriteLine(Settings.Password);
                     Settings.Password = string.Empty;
-
-                    // navigate to LoginPage
+                    // here is the right navigation to make your application has backbutton 
+                    // if you want to cancel backbutton 
+                    
+                    // await navigation.PushModelAsync(new login());
+                    await Navigation.PushAsync(new login());
                 });
             }
         }
